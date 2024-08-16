@@ -6,7 +6,7 @@ const Form = () => {
 
     const[show,setShow]=useState(false);
     const[error,setError]=useState(false);
-    const espacio= /^\s/;
+    const espacioAlprincipio= /^\s/;
 
     const [mascota,setMascota]=useState(
         {
@@ -33,13 +33,14 @@ const Form = () => {
     const handleSubmit =(e)=>{
        e.preventDefault();
 
-        if(mascota.tipo.length>=3 && !espacio.test(mascota.tipo) && mascota.nombre.length>=6)
+        if(mascota.tipo.length>=3 && !espacioAlprincipio.test(mascota.tipo) && mascota.nombre.length>=6)
         {
               setShow(true);
               setError(false);
         }
         else{
             setError(true)
+            setShow(false);
         }
       
     }
